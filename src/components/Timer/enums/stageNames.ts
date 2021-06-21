@@ -1,5 +1,5 @@
 enum stageNames {
-  work = "work",
+  session = "session",
   short_break = "short break",
   long_break = "long break"
 }

@@ -1,21 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import stageNames from "./enums/stageNames";
 import styles from "./Timer.module.scss";
 
+import AppContext from "../../context/AppContext";
 import Progress from "./components/Progress";
 import Controls from "./components/Controls";
 
-interface ITimer {
-  // Session time in seconds
-  session: number,
-  // Short break time in seconds
-  shortBreak: number,
-  // Long break time in seconds
-  longBreak: number
-}
+const Timer: React.FC = () => {
+  // Context values
+  const { session, shortBreak, longBreak } = useContext(AppContext);
 
-const Timer: React.FC<ITimer> = ({ session, shortBreak, longBreak }) => {
   // State
   const [time, setTime] = useState(session);
   const [isOn, setIsOn] = useState(false);
@@ -63,7 +58,7 @@ const Timer: React.FC<ITimer> = ({ session, shortBreak, longBreak }) => {
     if(isBreak) {
       return sessionCount % 4 === 0 ? stageNames.long_break : stageNames.short_break;
     } else {
-      return stageNames.work;
+      return stageNames.session;
     }
   }
 
