@@ -13,6 +13,10 @@ interface IAppContext {
   longBreak: number
   // Long break time setter
   setLongBreak: React.Dispatch<React.SetStateAction<number>>,
+  // Is Timer active
+  isActive: boolean,
+  // isActive setter
+  setIsActive: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const AppContext = createContext<IAppContext>(undefined!);
@@ -22,6 +26,7 @@ export const AppContextProvider: React.FC = ({ children }) => {
   const [session, setSession] = useState(5);
   const [shortBreak, setShortBreak] = useState(2);
   const [longBreak, setLongBreak] = useState(4);
+  const [isActive, setIsActive] = useState(false);
 
   return (
     <AppContext.Provider value={{
@@ -30,7 +35,9 @@ export const AppContextProvider: React.FC = ({ children }) => {
       shortBreak,
       setShortBreak,
       longBreak,
-      setLongBreak
+      setLongBreak,
+      isActive,
+      setIsActive
     }}>
       {children}
     </AppContext.Provider>

@@ -9,7 +9,7 @@ import Controls from "./components/Controls";
 
 const Timer: React.FC = () => {
   // Context values
-  const { session, shortBreak, longBreak } = useContext(AppContext);
+  const { session, shortBreak, longBreak, setIsActive } = useContext(AppContext);
 
   // State
   const [time, setTime] = useState(session);
@@ -17,11 +17,17 @@ const Timer: React.FC = () => {
   const [isBreak, setIsBreak] = useState(false);
   const [sessionCount, setSessionCount] = useState(1);
 
-  // Ref for Timer interval
+  // Timer interval reference
   const timerIntervalRef = useRef<NodeJS.Timeout>(undefined!);
 
   // Methods
-  // Toggle isOn flag
+  // Start the Timer
+  const startTimer = () => {
+    setIsActive(true);
+    setIsOn(true);
+  }
+
+  // Toggle the Timer
   const toggleIsOn = () => {
     setIsOn(prevState => !prevState);
   }
@@ -32,6 +38,7 @@ const Timer: React.FC = () => {
     setIsOn(false);
     setIsBreak(false);
     setSessionCount(1);
+    setIsActive(false);
   }
 
   // Return Timer interval
@@ -41,7 +48,7 @@ const Timer: React.FC = () => {
     }, 1000)
   };
 
-  // Set new stage
+  // Set new Timer stage
   const setTimerStage = () => {
     if (isBreak) {
       setTime(session);
@@ -53,7 +60,7 @@ const Timer: React.FC = () => {
     setIsBreak(prevState => !prevState);
   }
 
-  // Get current stage name
+  // Get current Timer stage name
   const getStageName = () => {
     if(isBreak) {
       return sessionCount % 4 === 0 ? stageNames.long_break : stageNames.short_break;
@@ -71,7 +78,7 @@ const Timer: React.FC = () => {
   }
 
   // Effects
-  // Start or stop interval based on isOn value
+  // Start or stop Timer interval based on isOn value
   useEffect(() => {
     if(isOn) {
       timerIntervalRef.current = getTimerInterval();
@@ -80,7 +87,7 @@ const Timer: React.FC = () => {
     }
   }, [isOn])
 
-  // When timer hits 0 change timer stage
+  // Change stage when time hits 0
   useEffect(() => {
     if(time <= 0) {
       setTimerStage();
@@ -98,7 +105,11 @@ const Timer: React.FC = () => {
       <Progress>
         <div className={styles.time}>{getCurrentTime()}</div>
       </Progress>
-      <Controls isOnHandler={toggleIsOn} resetHandler={resetState} />
+      <Controls 
+        isOn={isOn} 
+        startHandler={startTimer} 
+        toggleHandler={toggleIsOn} 
+        resetHandler={resetState} />
     </div>
   )
 }

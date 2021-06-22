@@ -1,7 +1,7 @@
 enum stageNames {
-  session = "session",
-  short_break = "short break",
-  long_break = "long break"
+  session = "Session",
+  short_break = "Short break",
+  long_break = "Long break"
 }
 
 export default stageNames;
