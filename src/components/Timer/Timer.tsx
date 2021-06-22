@@ -19,6 +19,8 @@ const Timer: React.FC = () => {
 
   // Timer interval reference
   const timerIntervalRef = useRef<NodeJS.Timeout>(undefined!);
+  // Total stage time reference (for Progress)
+  const stageTotalTimeRef = useRef<number>(session);
 
   // Methods
   // Start the Timer
@@ -39,6 +41,7 @@ const Timer: React.FC = () => {
     setIsBreak(false);
     setSessionCount(1);
     setIsActive(false);
+    stageTotalTimeRef.current = session;
   }
 
   // Return Timer interval
@@ -53,8 +56,10 @@ const Timer: React.FC = () => {
     if (isBreak) {
       setTime(session);
       setSessionCount(prevState => prevState + 1);
+      stageTotalTimeRef.current = session;
     } else {
       sessionCount % 4 === 0 ? setTime(longBreak) : setTime(shortBreak);
+      stageTotalTimeRef.current = sessionCount % 4 === 0 ? longBreak : shortBreak;
     }
 
     setIsBreak(prevState => !prevState);
@@ -67,14 +72,6 @@ const Timer: React.FC = () => {
     } else {
       return stageNames.session;
     }
-  }
-
-  // Get current time in minutes:seconds format
-  const getCurrentTime = () => {
-    const minutes = ("0" + Math.floor(time / 60)).slice(-2);
-    const seconds = ("0" + time % 60).slice(-2);
-
-    return `${minutes}:${seconds}`
   }
 
   // Effects
@@ -102,9 +99,7 @@ const Timer: React.FC = () => {
   return (
     <div className={styles.timer}>
       <div className={styles.stage}>{getStageName()}</div>
-      <Progress>
-        <div className={styles.time}>{getCurrentTime()}</div>
-      </Progress>
+      <Progress currentTime={time} totalTime={stageTotalTimeRef.current} />
       <Controls 
         isOn={isOn} 
         startHandler={startTimer} 

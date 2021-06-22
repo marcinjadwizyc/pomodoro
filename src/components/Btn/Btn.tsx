@@ -1,18 +1,15 @@
 import styles from "./Btn.module.scss";
 
 interface IBtn {
-  // Action triggered on click
+  // Button action
   action: () => void,
-  // Title
+  // Button title - optional
   title?: string
 }
 
 const Btn: React.FC<IBtn> = ({ action, title, children }) => {
   return (
-    <button 
-      className={styles.btn} 
-      onClick={action} 
-      title={title}>
+    <button className={styles.btn} onClick={action} title={title}>
         {children}
     </button>
   )

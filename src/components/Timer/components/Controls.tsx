@@ -11,7 +11,7 @@ interface IControls {
   isOn: boolean,
   // Start the Timer
   startHandler: () => void,
-  // Toggle the Timer isOn value
+  // Toggle the Timer on/off
   toggleHandler: () => void,
   // Reset the Timer
   resetHandler: () => void
