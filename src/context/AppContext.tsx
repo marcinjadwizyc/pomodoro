@@ -1,4 +1,5 @@
-import React, { createContext, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { createContext, useState, useRef, useEffect } from "react";
 
 interface IAppContext {
   // Session time in seconds
@@ -19,6 +20,13 @@ interface IAppContext {
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+// Settings object interface
+interface ISettings {
+  session: number,
+  shortBreak: number,
+  longBreak: number
+}
+
 const AppContext = createContext<IAppContext>(undefined!);
 
 export const AppContextProvider: React.FC = ({ children }) => {
@@ -27,6 +35,45 @@ export const AppContextProvider: React.FC = ({ children }) => {
   const [shortBreak, setShortBreak] = useState(2);
   const [longBreak, setLongBreak] = useState(4);
   const [isActive, setIsActive] = useState(false);
+
+  // Local storage key reference
+  const localStorageKey = useRef("pomodoroSettings");
+
+  // Methods
+  // Save the settings in the local storage
+  const setLocalStorage = () => {
+    const settings = {
+      session,
+      shortBreak,
+      longBreak
+    };
+
+    localStorage.setItem(localStorageKey.current, JSON.stringify(settings));
+  }
+
+  // Get the settings from the local storage
+  const getLocalStorage = () => {
+    const settings: ISettings = JSON.parse(localStorage.getItem(localStorageKey.current)!);
+
+    if(settings) {
+      setSession(settings.session);
+      setShortBreak(settings.shortBreak);
+      setLongBreak(settings.longBreak);
+    } else {
+      setLocalStorage();
+    }
+  }
+
+  // Effects
+  // Get the saved settings on startup
+  useEffect(() => {
+    getLocalStorage();
+  }, [])
+
+  // Save the settings on change
+  useEffect(() => {
+    setLocalStorage();
+  }, [session, shortBreak, longBreak])
 
   return (
     <AppContext.Provider value={{
