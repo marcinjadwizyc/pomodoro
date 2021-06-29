@@ -31,9 +31,9 @@ const AppContext = createContext<IAppContext>(undefined!);
 
 export const AppContextProvider: React.FC = ({ children }) => {
   // State
-  const [session, setSession] = useState(5);
-  const [shortBreak, setShortBreak] = useState(2);
-  const [longBreak, setLongBreak] = useState(4);
+  const [session, setSession] = useState(60);
+  const [shortBreak, setShortBreak] = useState(30);
+  const [longBreak, setLongBreak] = useState(90);
   const [isActive, setIsActive] = useState(false);
 
   // Local storage key reference
