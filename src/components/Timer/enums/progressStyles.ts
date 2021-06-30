@@ -1,6 +1,7 @@
 enum progressStyles {
-  stroke = "#000",
-  fill = "transparent"
+  stroke = "#ff6347",
+  fill = "transparent",
+  linecap = "round"
 }
 
 export default progressStyles;

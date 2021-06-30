@@ -57,6 +57,7 @@ const Progress: React.FC<IProgress> = ({ currentTime, totalTime }) => {
           cy={radius}
           strokeDasharray={`${circumference} ${circumference}`}
           style={{ strokeDashoffset }}
+          stroke-linecap={progressStyles.linecap}
         />
       </svg>
       <div className={styles.time}>{getTime()}</div>

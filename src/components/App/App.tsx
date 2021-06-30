@@ -21,7 +21,7 @@ const App: React.FC = () => {
     <div className={styles.container}>
       <Timer />
       <Settings isOpen={isSettingsOpen} />
-      <Btn action={toggleIsSettingsOpen} type={btnTypes.round} title="Open Settings">
+      <Btn action={toggleIsSettingsOpen} type={btnTypes.square} title="Open Settings">
         <FaCog />
       </Btn>
     </div>

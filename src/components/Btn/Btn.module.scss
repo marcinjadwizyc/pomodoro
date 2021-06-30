@@ -1,1 +1,42 @@
 @import "../../styles/utils";
+
+.btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: inherit;
+	color: inherit;
+	border: 1px solid transparent;
+	background-color: transparent;
+	cursor: pointer;
+	transition: $BtnTransition;
+	transition-property: color, border-color;
+}
+
+.btn--default {
+	padding: $BtnDefaultPadding;
+	border-radius: $BtnDefaultBorderRadius;
+	background-color: $BtnDefaultBgColor;
+	box-shadow: $BtnDefaultBoxShadow;
+
+	&:focus {
+		border-color: $BtnDefaultFocusBorderColor;
+	}
+
+	&:hover,
+	&:active {
+		color: $BtnDefaultHoverFontColor;
+		border-color: $BtnDefaultHoverBorderColor;
+	}
+}
+
+.btn--square {
+	@extend .btn--default;
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+	z-index: 1000;
+	width: $BtnSquareDimensions;
+	height: $BtnSquareDimensions;
+	padding: 0;
+}

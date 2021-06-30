@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 @import "utils";
 
 *,
@@ -9,7 +9,14 @@
 	box-sizing: inherit;
 }
 
+*:focus {
+	outline: none;
+}
+
 body {
 	box-sizing: border-box;
 	font-family: $base-font-family;
+	font-weight: $base-font-weight;
+	color: $base-font-color;
+	background-color: $base-bg-color;
 }

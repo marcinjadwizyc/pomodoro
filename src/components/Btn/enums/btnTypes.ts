@@ -1,7 +1,7 @@
 enum btnTypes {
   primary = "primary",
   secondary = "secondary",
-  round = "round",
+  square = "square",
   default = "default"
 }
 
