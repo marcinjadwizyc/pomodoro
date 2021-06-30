@@ -18,7 +18,7 @@ const App: React.FC = () => {
   return (
     <div className={styles.container}>
       <Timer />
-      { isSettingsOpen ? <Settings /> : null }
+      <Settings isOpen={isSettingsOpen} />
       <Btn action={toggleIsSettingsOpen} title="Open Settings">
         <FaCog />
       </Btn>
