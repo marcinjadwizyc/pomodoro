@@ -7,6 +7,7 @@ import AppContext from "../../context/AppContext";
 import Stepper from "../Stepper/Stepper";
 
 interface ISettings {
+  // Is Settings open
   isOpen: boolean
 }
 
@@ -15,6 +16,7 @@ const Settings: React.FC<ISettings> = ({ isOpen }) => {
   const { session, shortBreak, longBreak, setSession, setShortBreak, setLongBreak} = useContext(AppContext);
 
   // Methods
+  // Get Settings classes
   const getClasses = () => {
     return [styles.settings, isOpen ? styles[classModifiers.visible] : styles[classModifiers.hidden]].join(" ");
   };
