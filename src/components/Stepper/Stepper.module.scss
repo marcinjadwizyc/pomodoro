@@ -1,1 +1,51 @@
 @import "../../styles/utils";
+
+.stepper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&:not(:last-of-type) {
+		margin-bottom: $StepperMarginBottom;
+	}
+}
+
+.label {
+	margin-right: $StepperLabelMarginRight;
+	font-size: $StepperLabelFontSize;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	border: $StepperContainerBorder;
+	border-radius: $StepperContainerBorderRadius;
+	transition: $StepperContainerTransition;
+
+	&:hover,
+	&:focus-within {
+		border-color: $StepperContainerHoverBorderColor;
+	}
+}
+
+.btn {
+	padding: $StepperBtnPadding;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: $StepperBtnTransition;
+	transition-property: color;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $StepperBtnHoverColor;
+	}
+}
+
+.input {
+	width: $StepperInputWidth;
+	padding: $StepperInputPadding;
+	text-align: center;
+}

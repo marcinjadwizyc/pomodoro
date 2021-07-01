@@ -7,32 +7,45 @@ $col-dark-lighten-blue: lighten($col-dark-blue, 5%);
 
 // Base
 $base-font-family: "Open Sans", sans-serif;
+$base-font-size: 18px;
 $base-font-color: $col-white;
 $base-font-weight: 300;
 $base-bg-color: $col-dark-blue;
 
-// Timer
-$StageFontSize: 18px;
-$StageLetterSpacing: 3px;
+$base-border: 1px solid $col-white;
+$base-border-radius: 4px;
+$base-transition-time: .25s;
 
+// Timer
+$StageLetterSpacing: 3px;
 $ProgressMargin: 30px 0;
 $ProgressBorderRadius: 100%;
 $ProgressBgColor: $col-dark-lighten-blue;
 $ProgressBoxShadow: 0 0 6px rgba($col-white, .4);
-
 $TimeFontSize: 64px;
-
 $ControlsMinWidth: 175px;
 
 // Btn
-$BtnTransition: .25s;
-
+$BtnTransition: $base-transition-time;
 $BtnDefaultPadding: 5px 15px;
-$BtnDefaultBorderRadius: 4px;
+$BtnDefaultBorderRadius: $base-border-radius;
 $BtnDefaultBgColor: $col-dark-lighten-blue;
 $BtnDefaultBoxShadow: 0 0 4px rgba($col-white, .4);
 $BtnDefaultFocusBorderColor: $col-white;
 $BtnDefaultHoverFontColor: $col-tomato;
 $BtnDefaultHoverBorderColor: $col-tomato;
-
 $BtnSquareDimensions: 40px;
+
+// Stepper
+$StepperMarginBottom: 15px;
+$StepperLabelMarginRight: 25px;
+$StepperLabelFontSize: 16px;
+$StepperContainerBorder: $base-border;
+$StepperContainerBorderRadius: $base-border-radius;
+$StepperContainerTransition: $base-transition-time;
+$StepperContainerHoverBorderColor: $col-tomato;
+$StepperBtnPadding: 0 5px;
+$StepperBtnTransition: $base-transition-time;
+$StepperBtnHoverColor: $col-tomato;
+$StepperInputWidth: 50px;
+$StepperInputPadding: 2px 5px;

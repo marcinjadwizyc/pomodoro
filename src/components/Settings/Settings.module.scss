@@ -4,7 +4,7 @@
 	position: absolute;
 	left: 50%;
 	padding: 15px;
-	background-color: darkgrey;
+	background-color: $col-dark-lighten-blue;
 	transition: 1s;
 	transform: translateX(-50%);
 }
