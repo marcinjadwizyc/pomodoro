@@ -37,7 +37,7 @@ $BtnDefaultHoverBorderColor: $col-tomato;
 $BtnSquareDimensions: 40px;
 
 // Stepper
-$StepperMarginBottom: 15px;
+$StepperMarginBottom: 20px;
 $StepperLabelMarginRight: 25px;
 $StepperLabelFontSize: 16px;
 $StepperContainerBorder: $base-border;
@@ -49,3 +49,9 @@ $StepperBtnTransition: $base-transition-time;
 $StepperBtnHoverColor: $col-tomato;
 $StepperInputWidth: 50px;
 $StepperInputPadding: 2px 5px;
+
+// Settings
+$SettingsMaxWidth: 300px;
+$SettingsPadding: 25px 15px;
+$SettingsBgColor: $col-dark-lighten-blue;
+$SettingsTransition: .5s;
