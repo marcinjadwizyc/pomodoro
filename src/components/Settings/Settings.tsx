@@ -5,6 +5,7 @@ import styles from "./Settings.module.scss";
 
 import AppContext from "../../context/AppContext";
 import Stepper from "../Stepper/Stepper";
+import Separator from "../Separator/Separator";
 
 interface ISettings {
   // Is Settings open
@@ -26,6 +27,7 @@ const Settings: React.FC<ISettings> = ({ isOpen }) => {
       <Stepper label={inputLabels.session} value={session} setter={setSession} />
       <Stepper label={inputLabels.short_break} value={shortBreak} setter={setShortBreak} />
       <Stepper label={inputLabels.long_break} value={longBreak} setter={setLongBreak} />
+      <Separator />
     </div>
   )
 };
