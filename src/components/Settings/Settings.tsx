@@ -29,7 +29,7 @@ const Settings: React.FC<ISettings> = ({ isOpen }) => {
       <Stepper label={inputLabels.short_break} value={shortBreak} setter={setShortBreak} />
       <Stepper label={inputLabels.long_break} value={longBreak} setter={setLongBreak} />
       <Separator />
-      <Checkbox />
+      <Checkbox label={inputLabels.alarm} value={isAlarmOn} setter={setIsAlarmOn} />
     </div>
   )
 };

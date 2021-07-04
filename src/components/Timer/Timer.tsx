@@ -88,6 +88,10 @@ const Timer: React.FC = () => {
   useEffect(() => {
     if(time <= 0) {
       setTimerStage();
+
+      if(isAlarmOn) {
+        // Play alarm
+      }
     }
   }, [time])
 
