@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import btnTitles from "./enums/btnTitles";
+import getId from "../../helpers/getId";
 import styles from "./Stepper.module.scss";
 
 interface IStepper {
@@ -22,11 +23,6 @@ const Stepper: React.FC<IStepper> = ({ value, setter, label, min, max }) => {
   const [valueInMinutes, setValueInMinutes] = useState(value / 60);
 
   // Methods
-  // Get ID based on the label
-  const getId = () => {
-    return label.toLowerCase().replace(" ", "_").replace(":", "");
-  }
-
   // Add 1 minute to the value
   const add = () => {
     console.log(valueInMinutes, min, max);
@@ -59,12 +55,12 @@ const Stepper: React.FC<IStepper> = ({ value, setter, label, min, max }) => {
 
   return (
     <div className={styles.stepper}>
-      <label htmlFor={getId()} className={styles.label}>{ label }</label>
+      <label htmlFor={getId(label)} className={styles.label}>{ label }</label>
       <div className={styles.container}>
         <button className={styles.btn} title={btnTitles.sub} onClick={subtract}>
           <FaMinus />
         </button>
-        <input id={getId()} className={styles.input} type="text" value={valueInMinutes} onChange={event => changeHandler(event)} />
+        <input id={getId(label)} className={styles.input} type="text" value={valueInMinutes} onChange={event => changeHandler(event)} />
         <button className={styles.btn} title={btnTitles.add} onClick={add}>
           <FaPlus />
         </button>
