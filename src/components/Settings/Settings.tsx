@@ -6,6 +6,7 @@ import styles from "./Settings.module.scss";
 import AppContext from "../../context/AppContext";
 import Stepper from "../Stepper/Stepper";
 import Separator from "../Separator/Separator";
+import Checkbox from "../Checkbox/Checkbox";
 
 interface ISettings {
   // Is Settings open
@@ -14,7 +15,7 @@ interface ISettings {
 
 const Settings: React.FC<ISettings> = ({ isOpen }) => {
   // Context values
-  const { session, shortBreak, longBreak, setSession, setShortBreak, setLongBreak} = useContext(AppContext);
+  const { session, shortBreak, longBreak, isAlarmOn, setSession, setShortBreak, setLongBreak, setIsAlarmOn} = useContext(AppContext);
 
   // Methods
   // Get Settings classes
@@ -28,6 +29,7 @@ const Settings: React.FC<ISettings> = ({ isOpen }) => {
       <Stepper label={inputLabels.short_break} value={shortBreak} setter={setShortBreak} />
       <Stepper label={inputLabels.long_break} value={longBreak} setter={setLongBreak} />
       <Separator />
+      <Checkbox />
     </div>
   )
 };

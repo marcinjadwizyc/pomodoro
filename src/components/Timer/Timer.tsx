@@ -9,7 +9,7 @@ import Controls from "./components/Controls";
 
 const Timer: React.FC = () => {
   // Context values
-  const { session, shortBreak, longBreak, setIsActive } = useContext(AppContext);
+  const { session, shortBreak, longBreak, isAlarmOn, setIsActive } = useContext(AppContext);
 
   // State
   const [time, setTime] = useState(session);
