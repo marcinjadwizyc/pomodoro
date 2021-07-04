@@ -14,6 +14,10 @@ interface IAppContext {
   longBreak: number
   // Long break time setter
   setLongBreak: React.Dispatch<React.SetStateAction<number>>,
+  // Is alarm sound on
+  isAlarmOn: boolean,
+  // Alarm sound setter
+  setIsAlarmOn: React.Dispatch<React.SetStateAction<boolean>>,
   // Is Timer active
   isActive: boolean,
   // isActive setter
@@ -24,7 +28,8 @@ interface IAppContext {
 interface ISettings {
   session: number,
   shortBreak: number,
-  longBreak: number
+  longBreak: number,
+  isAlarmOn: boolean
 }
 
 const AppContext = createContext<IAppContext>(undefined!);
@@ -34,6 +39,7 @@ export const AppContextProvider: React.FC = ({ children }) => {
   const [session, setSession] = useState(1500); // 25 min
   const [shortBreak, setShortBreak] = useState(300); // 5 min
   const [longBreak, setLongBreak] = useState(900); // 15 min
+  const [isAlarmOn, setIsAlarmOn] = useState(false);
   const [isActive, setIsActive] = useState(false);
 
   // Local storage key reference
@@ -45,7 +51,8 @@ export const AppContextProvider: React.FC = ({ children }) => {
     const settings = {
       session,
       shortBreak,
-      longBreak
+      longBreak,
+      isAlarmOn
     };
 
     localStorage.setItem(localStorageKey.current, JSON.stringify(settings));
@@ -83,6 +90,8 @@ export const AppContextProvider: React.FC = ({ children }) => {
       setShortBreak,
       longBreak,
       setLongBreak,
+      isAlarmOn,
+      setIsAlarmOn,
       isActive,
       setIsActive
     }}>
