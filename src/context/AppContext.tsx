@@ -66,6 +66,7 @@ export const AppContextProvider: React.FC = ({ children }) => {
       setSession(settings.session);
       setShortBreak(settings.shortBreak);
       setLongBreak(settings.longBreak);
+      setIsAlarmOn(settings.isAlarmOn);
     } else {
       setLocalStorage();
     }
@@ -80,7 +81,7 @@ export const AppContextProvider: React.FC = ({ children }) => {
   // Save the settings on change
   useEffect(() => {
     setLocalStorage();
-  }, [session, shortBreak, longBreak])
+  }, [session, shortBreak, longBreak, isAlarmOn])
 
   return (
     <AppContext.Provider value={{
