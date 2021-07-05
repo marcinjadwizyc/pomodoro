@@ -13,18 +13,20 @@ interface ICheckbox {
 const Checkbox: React.FC<ICheckbox> = ({ value, setter, label }) => {
   // Methods
   // Change handler
-  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = Boolean(event.target.checked);
+  const changeHandler = () => {
+    setter(prevState => !prevState);
+  }
 
-    setter(newValue);
+  // Get check classes
+  const getClasses = () => {
+    return [styles.check, value ? styles["check--checked"] : null].join(" ");
   }
 
   return (
     <div className={styles.checkbox}>
       <label className={styles.label} htmlFor={getId(label)}>{label}</label>
       <div className={styles.container}>
-        <div className={styles.visibleCheck} />
-        <input className={styles.hiddenCheck} id={getId(label)} type="checkbox" checked={value} onChange={(event) => changeHandler(event)} />
+        <div className={getClasses()} id={getId(label)} role="checkbox" aria-checked={value} onClick={changeHandler} />
       </div>
     </div>
   )
