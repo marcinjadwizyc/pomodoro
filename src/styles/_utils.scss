@@ -1,5 +1,6 @@
 // Colors
 $col-white: #fff;
+$col-white-opacity: rgba($col-white, .4);
 $col-black: #212121;
 $col-tomato: #ff6347;
 $col-dark-blue: #151932;
@@ -12,7 +13,7 @@ $base-font-color: $col-white;
 $base-font-weight: 300;
 $base-bg-color: $col-dark-blue;
 
-$base-border: 1px solid $col-white;
+$base-border: 1px solid rgba($col-white, .4);
 $base-border-radius: 4px;
 $base-transition-time: .25s;
 
@@ -26,14 +27,13 @@ $TimeFontSize: 64px;
 $ControlsMinWidth: 175px;
 
 // Btn
+$BtnBorder: $base-border;
 $BtnTransition: $base-transition-time;
 $BtnDefaultPadding: 5px 15px;
 $BtnDefaultBorderRadius: $base-border-radius;
 $BtnDefaultBgColor: $col-dark-lighten-blue;
 $BtnDefaultBoxShadow: 0 0 4px rgba($col-white, .4);
-$BtnDefaultFocusBorderColor: $col-white;
-$BtnDefaultHoverFontColor: $col-tomato;
-$BtnDefaultHoverBorderColor: $col-tomato;
+$BtnDefaultHoverBorderColor: $col-white;
 $BtnSquareDimensions: 40px;
 
 // Stepper
@@ -43,10 +43,12 @@ $StepperLabelFontSize: 16px;
 $StepperContainerBorder: $base-border;
 $StepperContainerBorderRadius: $base-border-radius;
 $StepperContainerTransition: $base-transition-time;
-$StepperContainerHoverBorderColor: $col-tomato;
+$StepperFocusColor: $col-white;
+$StepperContainerHoverBorderColor: $col-white;
 $StepperBtnPadding: 0 5px;
 $StepperBtnTransition: $base-transition-time;
-$StepperBtnHoverColor: $col-tomato;
+$StepperBtnColor: $col-white-opacity;
+$StepperBtnHoverColor: $col-white;
 $StepperInputWidth: 50px;
 $StepperInputPadding: 2px 5px;
 
@@ -65,6 +67,6 @@ $CheckboxLabelFontSize: 16px;
 $CheckboxCheckSize: 20px;
 $CheckboxCheckBorder: $base-border;
 $CheckboxCheckBorderRadius: $base-border-radius;
-$CheckboxCheckHoverColor: $col-tomato;
+$CheckboxCheckHoverColor: $col-white;
 $CheckboxCheckIconSize: 14px;
 $CheckboxCheckTransitionTime: $base-transition-time;

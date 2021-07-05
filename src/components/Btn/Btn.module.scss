@@ -4,7 +4,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border: 1px solid transparent;
+	border: $BtnBorder;
 	cursor: pointer;
 	transition: $BtnTransition;
 	transition-property: color, border-color;
@@ -16,13 +16,9 @@
 	background-color: $BtnDefaultBgColor;
 	box-shadow: $BtnDefaultBoxShadow;
 
-	&:focus {
-		border-color: $BtnDefaultFocusBorderColor;
-	}
-
 	&:hover,
+	&:focus,
 	&:active {
-		color: $BtnDefaultHoverFontColor;
 		border-color: $BtnDefaultHoverBorderColor;
 	}
 }

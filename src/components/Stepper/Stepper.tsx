@@ -22,6 +22,9 @@ const Stepper: React.FC<IStepper> = ({ value, setter, label, min, max }) => {
   // State
   const [valueInMinutes, setValueInMinutes] = useState(value / 60);
 
+  // Variables
+  const id = getId(label);
+
   // Methods
   // Add 1 minute to the value
   const add = () => {
@@ -55,12 +58,12 @@ const Stepper: React.FC<IStepper> = ({ value, setter, label, min, max }) => {
 
   return (
     <div className={styles.stepper}>
-      <label htmlFor={getId(label)} className={styles.label}>{ label }</label>
+      <label htmlFor={id} className={styles.label}>{ label }</label>
       <div className={styles.container}>
         <button className={styles.btn} title={btnTitles.sub} onClick={subtract}>
           <FaMinus />
         </button>
-        <input id={getId(label)} className={styles.input} type="text" value={valueInMinutes} onChange={event => changeHandler(event)} />
+        <input id={id} className={styles.input} type="text" value={valueInMinutes} onChange={event => changeHandler(event)} />
         <button className={styles.btn} title={btnTitles.add} onClick={add}>
           <FaPlus />
         </button>
