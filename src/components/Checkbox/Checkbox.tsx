@@ -1,4 +1,6 @@
+import { FaCheck } from "react-icons/fa";
 import getId from "../../helpers/getId";
+import checkboxTitles from "./enums/checkboxTitles";
 import styles from "./Checkbox.module.scss";
 
 interface ICheckbox {
@@ -11,22 +13,28 @@ interface ICheckbox {
 }
 
 const Checkbox: React.FC<ICheckbox> = ({ value, setter, label }) => {
+  // Variables
+  const id = getId(label);
+
   // Methods
   // Change handler
   const changeHandler = () => {
     setter(prevState => !prevState);
   }
 
-  // Get check classes
-  const getClasses = () => {
-    return [styles.check, value ? styles["check--checked"] : null].join(" ");
+  const changeHandlerOnKey = (event: React.KeyboardEvent) => {
+    if (event.code === "Enter" || event.code === "Space") {
+      setter(prevState => !prevState);
+    }
   }
 
   return (
     <div className={styles.checkbox}>
-      <label className={styles.label} htmlFor={getId(label)}>{label}</label>
+      <label className={styles.label} htmlFor={id} onClick={changeHandler}>{label}</label>
       <div className={styles.container}>
-        <div className={getClasses()} id={getId(label)} role="checkbox" aria-checked={value} onClick={changeHandler} />
+        <div className={styles.check} id={id} tabIndex={0} role="checkbox" aria-checked={value} onClick={changeHandler} title={value ? checkboxTitles.off : checkboxTitles.on} onKeyDown={changeHandlerOnKey}>
+          {value ? <FaCheck /> : null}
+        </div>
       </div>
     </div>
   )
