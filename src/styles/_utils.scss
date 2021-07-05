@@ -59,3 +59,12 @@ $SettingsTransition: .5s;
 // Separator
 $SeparatorMargin: 20px 0;
 $SeparatorBorderBottom: $base-border;
+
+// Checkbox
+$CheckboxLabelFontSize: 16px;
+$CheckboxCheckSize: 20px;
+$CheckboxCheckBorder: $base-border;
+$CheckboxCheckBorderRadius: $base-border-radius;
+$CheckboxCheckHoverColor: $col-tomato;
+$CheckboxCheckIconSize: 14px;
+$CheckboxCheckTransitionTime: $base-transition-time;

@@ -1,1 +1,31 @@
 @import "../../styles/utils";
+
+.checkbox {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.label {
+	font-size: $CheckboxLabelFontSize;
+}
+
+.check {
+	width: $CheckboxCheckSize;
+	height: $CheckboxCheckSize;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: $CheckboxCheckIconSize;
+	border: $CheckboxCheckBorder;
+	border-radius: $CheckboxCheckBorderRadius;
+	transition: $CheckboxCheckTransitionTime;
+	cursor: pointer;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $CheckboxCheckHoverColor;
+		border-color: $CheckboxCheckHoverColor;
+	}
+}
