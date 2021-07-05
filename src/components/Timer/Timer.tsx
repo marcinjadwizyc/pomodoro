@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import stageNames from "./enums/stageNames";
+import beep from "../../assets/beep.wav";
 import styles from "./Timer.module.scss";
 
 import AppContext from "../../context/AppContext";
@@ -21,6 +22,8 @@ const Timer: React.FC = () => {
   const timerIntervalRef = useRef<NodeJS.Timeout>(undefined!);
   // Total stage time reference (for Progress)
   const stageTotalTimeRef = useRef<number>(session);
+  // Beep sound reference
+  const beepSoundRef = useRef(new Audio(beep));
 
   // Methods
   // Start the Timer
@@ -90,7 +93,7 @@ const Timer: React.FC = () => {
       setTimerStage();
 
       if(isAlarmOn) {
-        // Play alarm
+        beepSoundRef.current.play();
       }
     }
   }, [time])
