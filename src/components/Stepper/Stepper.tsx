@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import btnTitles from "./enums/btnTitles";
 import getId from "../../helpers/getId";
@@ -19,42 +18,23 @@ interface IStepper {
 }
 
 const Stepper: React.FC<IStepper> = ({ value, setter, label, min, max }) => { 
-  // State
-  const [valueInMinutes, setValueInMinutes] = useState(value / 60);
-
   // Variables
   const id = getId(label);
 
   // Methods
   // Add 1 minute to the value
   const add = () => {
-    console.log(valueInMinutes, min, max);
-    if (valueInMinutes < max!) {
-      setValueInMinutes(prevState => prevState + 1);
+    if (value / 60 < max!) {
+      setter(prevState => prevState + 60);
     }
   }
 
   // Subtract 1 minute from the value
   const subtract = () => {
-    if (valueInMinutes > min!) {
-      setValueInMinutes(prevState => prevState - 1);
+    if (value / 60 > min!) {
+      setter(prevState => prevState - 60);
     }
   }
-
-  // Handle value change from the input
-  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = parseInt(event.target.value);
-
-    if (newValue <= max! && newValue >= min!) {
-      setValueInMinutes(newValue);
-    }
-  }
-
-  // Effect
-  // Set parent value on every change of the internal state
-  useEffect(() => {
-    setter(valueInMinutes * 60);
-  }, [valueInMinutes])
 
   return (
     <div className={styles.stepper}>
@@ -63,7 +43,7 @@ const Stepper: React.FC<IStepper> = ({ value, setter, label, min, max }) => {
         <button className={styles.btn} title={btnTitles.sub} onClick={subtract}>
           <FaMinus />
         </button>
-        <input id={id} className={styles.input} type="text" value={valueInMinutes} onChange={event => changeHandler(event)} />
+        <input id={id} className={styles.input} type="text" value={value / 60} disabled />
         <button className={styles.btn} title={btnTitles.add} onClick={add}>
           <FaPlus />
         </button>
