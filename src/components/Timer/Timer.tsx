@@ -20,7 +20,7 @@ const Timer: React.FC = () => {
 
   // Timer interval reference
   const timerIntervalRef = useRef<NodeJS.Timeout>(undefined!);
-  // Total stage time reference (for Progress)
+  // Total stage time reference (for Progress component)
   const stageTotalTimeRef = useRef<number>(session * 60);
   // Beep sound reference
   const beepSoundRef = useRef(new Audio(beep));

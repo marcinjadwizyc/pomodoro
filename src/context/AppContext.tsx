@@ -2,15 +2,15 @@
 import React, { createContext, useState, useRef, useEffect } from "react";
 
 interface IAppContext {
-  // Session time in seconds
+  // Session time in minutes
   session: number,
   // Session time setter
   setSession: React.Dispatch<React.SetStateAction<number>>,
-  // Short break time in seconds
+  // Short break time in minutes
   shortBreak: number,
   // Short break time setter
   setShortBreak: React.Dispatch<React.SetStateAction<number>>,
-  // Long break time in seconds
+  // Long break time in minutes
   longBreak: number
   // Long break time setter
   setLongBreak: React.Dispatch<React.SetStateAction<number>>,
