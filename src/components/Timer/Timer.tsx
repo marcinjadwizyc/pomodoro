@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useRef, useEffect, useContext } from "react";
 import stageNames from "./enums/stageNames";
-import beep from "../../assets/beep.wav";
+import beep from "../../assets/beep.mp3";
 import styles from "./Timer.module.scss";
 
 import AppContext from "../../context/AppContext";
