@@ -13,7 +13,7 @@ const Timer: React.FC = () => {
   const { session, shortBreak, longBreak, isAlarmOn, setIsActive } = useContext(AppContext);
 
   // State
-  const [time, setTime] = useState(session);
+  const [time, setTime] = useState(session * 60);
   const [isOn, setIsOn] = useState(false);
   const [isBreak, setIsBreak] = useState(false);
   const [sessionCount, setSessionCount] = useState(1);
@@ -21,7 +21,7 @@ const Timer: React.FC = () => {
   // Timer interval reference
   const timerIntervalRef = useRef<NodeJS.Timeout>(undefined!);
   // Total stage time reference (for Progress)
-  const stageTotalTimeRef = useRef<number>(session);
+  const stageTotalTimeRef = useRef<number>(session * 60);
   // Beep sound reference
   const beepSoundRef = useRef(new Audio(beep));
 
@@ -39,12 +39,12 @@ const Timer: React.FC = () => {
 
   // Reset state values
   const resetState = () => {
-    setTime(session);
+    setTime(session * 60);
     setIsOn(false);
     setIsBreak(false);
     setSessionCount(1);
     setIsActive(false);
-    stageTotalTimeRef.current = session;
+    stageTotalTimeRef.current = session * 60;
   }
 
   // Return Timer interval
@@ -57,12 +57,12 @@ const Timer: React.FC = () => {
   // Set new Timer stage
   const setTimerStage = () => {
     if (isBreak) {
-      setTime(session);
+      setTime(session * 60);
       setSessionCount(prevState => prevState + 1);
-      stageTotalTimeRef.current = session;
+      stageTotalTimeRef.current = session * 60;
     } else {
-      sessionCount % 4 === 0 ? setTime(longBreak) : setTime(shortBreak);
-      stageTotalTimeRef.current = sessionCount % 4 === 0 ? longBreak : shortBreak;
+      sessionCount % 4 === 0 ? setTime(longBreak * 60) : setTime(shortBreak * 60);
+      stageTotalTimeRef.current = sessionCount % 4 === 0 ? longBreak * 60 : shortBreak * 60;
     }
 
     setIsBreak(prevState => !prevState);

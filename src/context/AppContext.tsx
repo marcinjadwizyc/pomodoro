@@ -36,9 +36,9 @@ const AppContext = createContext<IAppContext>(undefined!);
 
 export const AppContextProvider: React.FC = ({ children }) => {
   // State
-  const [session, setSession] = useState(1500); // 25 min
-  const [shortBreak, setShortBreak] = useState(300); // 5 min
-  const [longBreak, setLongBreak] = useState(900); // 15 min
+  const [session, setSession] = useState(25); // 25 min
+  const [shortBreak, setShortBreak] = useState(5); // 5 min
+  const [longBreak, setLongBreak] = useState(15); // 15 min
   const [isAlarmOn, setIsAlarmOn] = useState(false);
   const [isActive, setIsActive] = useState(false);
 
