@@ -26,10 +26,10 @@
 .btn--square {
 	@extend .btn--default;
 	position: absolute;
-	bottom: 15px;
-	right: 15px;
+	bottom: $BtnSquarePosition;
+	right: $BtnSquarePosition;
 	z-index: 1000;
-	width: $BtnSquareDimensions;
-	height: $BtnSquareDimensions;
+	width: $BtnSquareSize;
+	height: $BtnSquareSize;
 	padding: 0;
 }

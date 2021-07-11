@@ -22,6 +22,7 @@ const Checkbox: React.FC<ICheckbox> = ({ value, setter, label }) => {
     setter(prevState => !prevState);
   }
 
+  // Change handler on key down
   const changeHandlerOnKey = (event: React.KeyboardEvent) => {
     if (event.code === "Enter" || event.code === "Space") {
       setter(prevState => !prevState);

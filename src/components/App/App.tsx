@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaCog } from "react-icons/fa";
 import btnTypes from "../Btn/enums/btnTypes";
+import settingsTitles from "./enums/settingsTitles";
 import styles from "./App.module.scss";
 
 import Timer from "../Timer/Timer";
@@ -21,7 +22,7 @@ const App: React.FC = () => {
     <div className={styles.container}>
       <Timer />
       <Settings isOpen={isSettingsOpen} />
-      <Btn action={toggleIsSettingsOpen} type={btnTypes.square} title="Open Settings">
+      <Btn action={toggleIsSettingsOpen} type={btnTypes.square} title={isSettingsOpen ? settingsTitles.close : settingsTitles.open}>
         <FaCog />
       </Btn>
     </div>

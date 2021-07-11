@@ -17,6 +17,9 @@ $base-border: 1px solid rgba($col-white, .4);
 $base-border-radius: 4px;
 $base-transition-time: .25s;
 
+// App
+$ContainerPadding: 25px;
+
 // Timer
 $StageLetterSpacing: 3px;
 $ProgressMargin: 30px 0;
@@ -34,7 +37,8 @@ $BtnDefaultBorderRadius: $base-border-radius;
 $BtnDefaultBgColor: $col-dark-lighten-blue;
 $BtnDefaultBoxShadow: 0 0 4px rgba($col-white, .4);
 $BtnDefaultHoverBorderColor: $col-white;
-$BtnSquareDimensions: 40px;
+$BtnSquarePosition: 15px;
+$BtnSquareSize: 40px;
 
 // Stepper
 $StepperMarginBottom: 20px;

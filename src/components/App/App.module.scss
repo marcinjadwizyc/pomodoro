@@ -3,7 +3,7 @@
 .container {
 	position: relative;
 	min-height: 100vh;
-	padding: 25px;
+	padding: $ContainerPadding;
 	display: flex;
 	justify-content: center;
 	align-items: center;
