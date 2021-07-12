@@ -9,24 +9,28 @@ import Settings from "../Settings/Settings";
 import Btn from "../Btn/Btn";
 
 const App: React.FC = () => {
-  // State
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+	// State
+	const [ isSettingsOpen, setIsSettingsOpen ] = useState(false);
 
-  // Methods
-  // Toggle isSettingsOpen
-  const toggleIsSettingsOpen = () => {
-    setIsSettingsOpen(prevState => !prevState);
-  }
+	// Methods
+	// Toggle isSettingsOpen
+	const toggleIsSettingsOpen = () => {
+		setIsSettingsOpen((prevState) => !prevState);
+	};
 
-  return (
-    <div className={styles.container}>
-      <Timer />
-      <Settings isOpen={isSettingsOpen} />
-      <Btn action={toggleIsSettingsOpen} type={btnTypes.square} title={isSettingsOpen ? settingsTitles.close : settingsTitles.open}>
-        <FaCog />
-      </Btn>
-    </div>
-  )
-}
+	return (
+		<div className={styles.container}>
+			<Timer />
+			<Settings isOpen={isSettingsOpen} />
+			<Btn
+				action={toggleIsSettingsOpen}
+				type={btnTypes.square}
+				title={isSettingsOpen ? settingsTitles.close : settingsTitles.open}
+			>
+				<FaCog />
+			</Btn>
+		</div>
+	);
+};
 
 export default App;
